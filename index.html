@@ -209,11 +209,48 @@ picture img{width:100%;height:auto;object-fit:cover;object-position:center;}
   .btn{min-height:44px;}
 }
 
-.lang-strip{position:fixed;top:0;left:0;right:0;z-index:500;background:var(--dark);padding:0.3rem clamp(1rem,4vw,2rem);display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(212,168,83,0.2);min-height:28px;}
-.lang-strip span{font-size:clamp(0.55rem,2vw,0.7rem);color:rgba(255,255,255,0.4);letter-spacing:0.1em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60%;}
-.lang-btns{display:flex;gap:0.3rem;flex-shrink:0;}
-.lb{background:none;border:1px solid rgba(212,168,83,0.3);color:var(--gold);font-family:'Crimson Pro',serif;font-size:clamp(0.7rem,2.5vw,0.8rem);padding:0.15rem clamp(0.4rem,2vw,0.7rem);border-radius:2px;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+.lang-strip{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  background:var(--dark);
+  padding:0 clamp(0.8rem,3vw,2rem);
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid rgba(212,168,83,0.2);
+  min-height:32px;height:32px;
+}
+.lang-strip-label{
+  font-size:clamp(0.5rem,1.8vw,0.68rem);
+  color:rgba(255,255,255,0.4);
+  letter-spacing:0.08em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  max-width:55%;
+  flex-shrink:1;
+}
+@media(max-width:360px){.lang-strip-label{display:none;}}
+.lang-btns{display:flex;gap:0.25rem;flex-shrink:0;}
+.lb{
+  background:none;
+  border:1px solid rgba(212,168,83,0.3);
+  color:var(--gold);
+  font-family:'Crimson Pro',serif;
+  font-size:clamp(0.68rem,2vw,0.8rem);
+  padding:0.1rem clamp(0.5rem,2vw,0.9rem);
+  border-radius:2px;
+  cursor:pointer;
+  transition:all .2s;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+  min-height:22px;
+  line-height:1.2;
+  white-space:nowrap;
+}
 .lb.active{background:var(--gold);color:var(--dark);font-weight:700;}
+.lb:hover:not(.active){background:rgba(212,168,83,0.12);}
+@supports(padding-bottom:env(safe-area-inset-bottom)){
+  .lang-strip{
+    padding-left:max(0.8rem,env(safe-area-inset-left));
+    padding-right:max(0.8rem,env(safe-area-inset-right));
+  }
+}
 
 nav{position:fixed;top:28px;left:0;right:0;z-index:400;display:flex;justify-content:space-between;align-items:center;padding:0.7rem clamp(0.8rem,3vw,2.5rem);transition:all .4s;gap:0.8rem;}
 nav.opaque{background:rgba(253,246,236,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,168,83,0.4);box-shadow:0 4px 40px rgba(139,26,26,0.08);}
@@ -570,7 +607,6 @@ body.eng .en-b{display:block;}
 
 @supports(padding-bottom:env(safe-area-inset-bottom)){
   footer{padding-bottom:calc(1.5rem + env(safe-area-inset-bottom));}
-  .lang-strip{padding-left:max(1rem,env(safe-area-inset-left));padding-right:max(1rem,env(safe-area-inset-right));}
 }
 
 @media(max-width:390px){
@@ -592,6 +628,90 @@ body.eng .en-b{display:block;}
   section{padding:1.5rem;}
   nav,.lang-strip{position:relative;top:auto;}
 }
+
+/* ══════════ BUS TIMING SECTION ══════════ */
+#bus-timing{background:linear-gradient(135deg,#0d0500 0%,#1a0800 50%,#0d0500 100%);padding:var(--space-xl) clamp(1rem,4vw,2.5rem);}
+.bus-head{text-align:center;margin-bottom:clamp(2rem,5vw,3.5rem);}
+.bus-head h2.ta{font-family:'Tiro Tamil',serif;font-size:clamp(1.8rem,5vw,2.8rem);color:var(--gold);margin-bottom:0.3rem;}
+.bus-head h2.en{font-family:'Cinzel Decorative',serif;font-size:clamp(1rem,3vw,1.6rem);color:var(--lightgold);letter-spacing:0.12em;}
+.bus-head .lead{color:rgba(255,255,255,0.5);font-size:var(--text-sm);margin-top:0.6rem;}
+.bus-village-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,168,83,0.12);border:1px solid rgba(212,168,83,0.3);border-radius:100px;padding:0.35rem 1rem;font-family:'Cinzel',serif;font-size:clamp(0.6rem,1.8vw,0.72rem);letter-spacing:0.18em;color:var(--gold);margin-bottom:1.2rem;}
+
+.bus-routes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,3vw,1.8rem);max-width:1300px;margin:0 auto;align-items:start;}
+@media(max-width:900px){.bus-routes-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.bus-routes-grid{grid-template-columns:1fr;}}
+.bus-route-card-wide{grid-column:1/-1;}
+.bus-timings-list-wide{display:grid;grid-template-columns:repeat(2,1fr);gap:0.35rem 1.5rem;}
+@media(max-width:600px){.bus-timings-list-wide{grid-template-columns:1fr;}}
+
+.bus-route-card{background:rgba(255,255,255,0.03);border:1px solid rgba(212,168,83,0.18);border-radius:8px;overflow:hidden;transition:transform 0.25s ease,border-color 0.25s ease,box-shadow 0.25s ease;}
+.bus-route-card:hover{transform:translateY(-4px);border-color:rgba(212,168,83,0.45);box-shadow:0 12px 40px rgba(0,0,0,0.4);}
+
+.bus-route-header{background:linear-gradient(135deg,rgba(139,26,26,0.6),rgba(92,46,10,0.5));padding:clamp(0.8rem,2vw,1.2rem) clamp(1rem,2.5vw,1.5rem);border-bottom:1px solid rgba(212,168,83,0.2);display:flex;align-items:flex-start;gap:0.8rem;}
+.bus-route-icon{font-size:clamp(1.4rem,3vw,1.8rem);flex-shrink:0;margin-top:0.1rem;}
+.bus-route-title-wrap{flex:1;min-width:0;display:flex;flex-direction:column;gap:0.25rem;}
+.bus-route-title{font-family:'Cinzel',serif;font-size:clamp(0.7rem,1.8vw,0.85rem);letter-spacing:0.06em;color:var(--lightgold);line-height:1.4;word-break:break-word;}
+.bus-route-title-ta{font-family:'Tiro Tamil',serif;font-size:clamp(0.65rem,1.6vw,0.78rem);color:rgba(255,255,255,0.4);line-height:1.4;}
+.bus-count-badge{flex-shrink:0;align-self:flex-start;background:rgba(212,168,83,0.15);border:1px solid rgba(212,168,83,0.3);border-radius:100px;padding:0.2rem 0.65rem;font-size:0.63rem;font-family:'Cinzel',serif;color:var(--gold);white-space:nowrap;margin-top:0.1rem;}
+
+.bus-timings-list{padding:clamp(0.6rem,2vw,1rem) clamp(0.8rem,2vw,1.2rem);display:flex;flex-direction:column;gap:0.35rem;}
+.bus-timing-row{display:grid;grid-template-columns:24px 90px 1fr;align-items:center;gap:0.7rem;padding:0.45rem 0.7rem;border-radius:5px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);transition:background 0.2s;}
+.bus-timing-row:hover{background:rgba(212,168,83,0.07);border-color:rgba(212,168,83,0.15);}
+
+/* ── NEXT BUS HIGHLIGHT ── */
+.bus-timing-row.next-bus{
+  background:linear-gradient(90deg,rgba(212,168,83,0.18),rgba(212,168,83,0.08));
+  border-color:rgba(212,168,83,0.6);
+  box-shadow:0 0 0 1px rgba(212,168,83,0.3), 0 4px 16px rgba(212,168,83,0.15);
+  animation:nextBusPulse 2.5s ease-in-out infinite;
+  position:relative;
+}
+.bus-timing-row.next-bus .bus-time{color:var(--gold);}
+.bus-timing-row.next-bus .bus-num{color:var(--gold);font-weight:700;}
+.bus-timing-row.next-bus::before{
+  content:'▶ NEXT';
+  position:absolute;
+  right:0.5rem;top:50%;transform:translateY(-50%);
+  font-family:'Cinzel',serif;font-size:0.55rem;
+  letter-spacing:0.12em;color:var(--gold);
+  background:rgba(212,168,83,0.15);
+  border:1px solid rgba(212,168,83,0.4);
+  border-radius:100px;padding:0.1rem 0.45rem;
+  white-space:nowrap;
+}
+.bus-timing-row.past-bus{opacity:0.35;}
+.bus-timing-row.past-bus .bus-time{text-decoration:line-through;text-decoration-color:rgba(255,255,255,0.2);}
+@keyframes nextBusPulse{
+  0%,100%{box-shadow:0 0 0 1px rgba(212,168,83,0.3),0 4px 16px rgba(212,168,83,0.15);}
+  50%{box-shadow:0 0 0 2px rgba(212,168,83,0.6),0 4px 24px rgba(212,168,83,0.35);}
+}
+
+/* Live clock bar */
+.bus-clock-bar{
+  display:flex;align-items:center;justify-content:center;gap:0.8rem;
+  margin-bottom:clamp(1.5rem,3vw,2.5rem);
+  padding:0.6rem 1.2rem;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(212,168,83,0.2);
+  border-radius:100px;
+  width:fit-content;margin-left:auto;margin-right:auto;
+}
+.bus-clock-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:nextBusPulse 1.5s ease-in-out infinite;flex-shrink:0;}
+.bus-clock-time{font-family:'Cinzel Decorative',serif;font-size:clamp(0.85rem,2.5vw,1.1rem);color:var(--gold);letter-spacing:0.08em;}
+.bus-clock-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;color:rgba(255,255,255,0.35);text-transform:uppercase;}
+.bus-num{font-family:'Cinzel',serif;font-size:0.62rem;color:rgba(255,255,255,0.25);text-align:right;}
+.bus-time{font-family:'Cinzel Decorative',serif;font-size:clamp(0.8rem,2vw,0.92rem);color:#fff;letter-spacing:0.03em;white-space:nowrap;}
+.bus-time .ampm{font-size:0.6rem;color:rgba(255,255,255,0.45);letter-spacing:0.1em;margin-left:0.2rem;}
+.bus-operator{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;padding:0.18rem 0.6rem;border-radius:100px;white-space:nowrap;justify-self:start;}
+.bus-op-govt{background:rgba(74,127,165,0.2);border:1px solid rgba(74,127,165,0.35);color:#7fbfdf;}
+.bus-op-ganesh{background:rgba(45,80,22,0.25);border:1px solid rgba(45,80,22,0.4);color:#90c870;}
+.bus-op-kbl{background:rgba(139,100,26,0.25);border:1px solid rgba(139,100,26,0.4);color:#e0b060;}
+.bus-op-unknown{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.3);}
+
+.bus-legend{display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;margin-top:clamp(1.5rem,3vw,2.5rem);}
+.bus-legend-item{display:flex;align-items:center;gap:0.4rem;font-size:0.68rem;font-family:'Cinzel',serif;letter-spacing:0.06em;}
+.bus-legend-dot{width:10px;height:10px;border-radius:50%;}
+
 
 /* ══════════ DEVELOPER CARD ══════════ */
 .dev-card{
@@ -857,10 +977,10 @@ body.eng .en-b{display:block;}
 <div class="cursor-ring" id="ring"></div>
 
 <div class="lang-strip">
-  <span>மிதிலைப்பட்டி · Mithilaipatti, Tamil Nadu</span>
+  <span class="lang-strip-label">மிதிலைப்பட்டி · Mithilaipatti, Tamil Nadu</span>
   <div class="lang-btns">
-    <button class="lb active" id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
-    <button class="lb" id="btn-en" onclick="setLang('en')">English</button>
+    <button class="lb active" id="btn-ta" onclick="setLang('ta')" aria-label="தமிழ் மொழி">தமிழ்</button>
+    <button class="lb" id="btn-en" onclick="setLang('en')" aria-label="English language">English</button>
   </div>
 </div>
 
@@ -877,6 +997,7 @@ body.eng .en-b{display:block;}
     <li><a href="#tourism"><span class="ta-t">சுற்றுலா</span><span class="en-t">Tourism</span></a></li>
     <li><a href="#festivals"><span class="ta-t">பண்டிகைகள்</span><span class="en-t">Festivals</span></a></li>
     <li><a href="#reach"><span class="ta-t">வழி</span><span class="en-t">Reach</span></a></li>
+    <li><a href="#bus-timing"><span class="ta-t">பேருந்து</span><span class="en-t">Bus</span></a></li>
     <li><a href="#developer">Developer</a></li>
     <li><a href="#contact"><span class="ta-t">தொடர்பு</span><span class="en-t">Contact</span></a></li>
   </ul>
@@ -1232,7 +1353,7 @@ body.eng .en-b{display:block;}
 
       <!-- Prince Mobiles -->
       <div class="ad-card" onclick="window.open('tel:9361690197')" role="link" aria-label="பிரண்ஸ் மொபைல்ஸ் — அழைக்க: 9361690197">
-        <img src="Taj anne shop.png"
+        <img src="taj anne shop.png"
           alt="பிரண்ஸ் மொபைல்ஸ் — சேல்ஸ் &amp; சர்வீஸ், இராங்கியம் மேட்டு"
           loading="lazy"
           decoding="async"
@@ -1365,6 +1486,171 @@ body.eng .en-b{display:block;}
         <a href="https://maps.google.com/?q=Mithilaipatti+Sivagangai" target="_blank" rel="noopener noreferrer">📌 <span class="ta-t">Google Maps-ல் காண்க</span><span class="en-t">View on Google Maps</span></a>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="bus-timing">
+  <div class="wrap">
+    <div class="bus-head r">
+      <div class="bus-village-badge">🚌 &nbsp;MITHILAIPATTI BUS TIMING</div>
+      <h2 class="ta ta-b">பேருந்து நேர அட்டவணை</h2>
+      <h2 class="en">Bus Schedule</h2>
+      <p class="lead"><span class="ta-b">மிதிலைப்பட்டியிலிருந்து அனைத்து இடங்களுக்கும் பேருந்து வேளை</span><span class="en-b">All bus departures from Mithilaipatti to nearby destinations</span></p>
+
+      <!-- Live Clock -->
+      <div class="bus-clock-bar">
+        <span class="bus-clock-dot"></span>
+        <span class="bus-clock-label"><span class="ta-t">இப்போது</span><span class="en-t">Now</span></span>
+        <span class="bus-clock-time" id="busLiveClock">--:-- --</span>
+        <span class="bus-clock-label">IST</span>
+      </div>
+    </div>
+
+    <div class="bus-routes-grid">
+
+      <!-- PONNAMARAVATHY -->
+      <div class="bus-route-card bus-route-card-wide r">
+        <div class="bus-route-header">
+          <span class="bus-route-icon">🚌</span>
+          <div class="bus-route-title-wrap">
+            <div class="bus-route-title">MITHILAIPATTI → PONNAMARAVATHY</div>
+            <div class="bus-route-title-ta">மிதிலைப்பட்டி → பொன்னமராவதி</div>
+          </div>
+          <span class="bus-count-badge">17 trips</span>
+        </div>
+        <div class="bus-timings-list bus-timings-list-wide">
+          <div class="bus-timing-row" data-time="05:15"><span class="bus-num">01</span><span class="bus-time">5:15<span class="ampm">AM</span></span><span class="bus-operator bus-op-govt">GOVT NO.8</span></div>
+          <div class="bus-timing-row" data-time="06:45"><span class="bus-num">02</span><span class="bus-time">6:45<span class="ampm">AM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+          <div class="bus-timing-row" data-time="08:00"><span class="bus-num">03</span><span class="bus-time">8:00<span class="ampm">AM</span></span><span class="bus-operator bus-op-unknown">—</span></div>
+          <div class="bus-timing-row" data-time="09:30"><span class="bus-num">04</span><span class="bus-time">9:30<span class="ampm">AM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+          <div class="bus-timing-row" data-time="09:45"><span class="bus-num">05</span><span class="bus-time">9:45<span class="ampm">AM</span></span><span class="bus-operator bus-op-govt">GOVT NO.8</span></div>
+          <div class="bus-timing-row" data-time="10:00"><span class="bus-num">06</span><span class="bus-time">10:00<span class="ampm">AM</span></span><span class="bus-operator bus-op-ganesh">GANESH</span></div>
+          <div class="bus-timing-row" data-time="10:45"><span class="bus-num">07</span><span class="bus-time">10:45<span class="ampm">AM</span></span><span class="bus-operator bus-op-kbl">KBL</span></div>
+          <div class="bus-timing-row" data-time="11:45"><span class="bus-num">08</span><span class="bus-time">11:45<span class="ampm">AM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+          <div class="bus-timing-row" data-time="12:15"><span class="bus-num">09</span><span class="bus-time">12:15<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.8</span></div>
+          <div class="bus-timing-row" data-time="14:00"><span class="bus-num">10</span><span class="bus-time">2:00<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+          <div class="bus-timing-row" data-time="14:30"><span class="bus-num">11</span><span class="bus-time">2:30<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.8</span></div>
+          <div class="bus-timing-row" data-time="16:30"><span class="bus-num">12</span><span class="bus-time">4:30<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+          <div class="bus-timing-row" data-time="17:00"><span class="bus-num">13</span><span class="bus-time">5:00<span class="ampm">PM</span></span><span class="bus-operator bus-op-unknown">—</span></div>
+          <div class="bus-timing-row" data-time="17:15"><span class="bus-num">14</span><span class="bus-time">5:15<span class="ampm">PM</span></span><span class="bus-operator bus-op-kbl">KBL</span></div>
+          <div class="bus-timing-row" data-time="17:45"><span class="bus-num">15</span><span class="bus-time">5:45<span class="ampm">PM</span></span><span class="bus-operator bus-op-ganesh">GANESH</span></div>
+          <div class="bus-timing-row" data-time="19:15"><span class="bus-num">16</span><span class="bus-time">7:15<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+          <div class="bus-timing-row" data-time="19:30"><span class="bus-num">17</span><span class="bus-time">7:30<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.8</span></div>
+        </div>
+      </div>
+
+      <!-- THIRUMAYAM -->
+      <div class="bus-route-card r">
+        <div class="bus-route-header">
+          <span class="bus-route-icon">🚌</span>
+          <div class="bus-route-title-wrap">
+            <div class="bus-route-title">MITHILAIPATTI → THIRUMAYAM</div>
+            <div class="bus-route-title-ta">மிதிலைப்பட்டி → திருமயம்</div>
+          </div>
+          <span class="bus-count-badge">5 trips</span>
+        </div>
+        <div class="bus-timings-list">
+          <div class="bus-timing-row" data-time="05:30"><span class="bus-num">01</span><span class="bus-time">5:30<span class="ampm">AM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+          <div class="bus-timing-row" data-time="08:15"><span class="bus-num">02</span><span class="bus-time">8:15<span class="ampm">AM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+          <div class="bus-timing-row" data-time="13:15"><span class="bus-num">03</span><span class="bus-time">1:15<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+          <div class="bus-timing-row" data-time="15:15"><span class="bus-num">04</span><span class="bus-time">3:15<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+          <div class="bus-timing-row" data-time="17:45"><span class="bus-num">05</span><span class="bus-time">5:45<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.5</span></div>
+        </div>
+      </div>
+
+      <!-- KEELACHIVALPATTI -->
+      <div class="bus-route-card r">
+        <div class="bus-route-header">
+          <span class="bus-route-icon">🚌</span>
+          <div class="bus-route-title-wrap">
+            <div class="bus-route-title">MITHILAIPATTI → KEELACHIVALPATTI</div>
+            <div class="bus-route-title-ta">மிதிலைப்பட்டி → கீழச்சிவல்பட்டி</div>
+          </div>
+          <span class="bus-count-badge">5 trips</span>
+        </div>
+        <div class="bus-timings-list">
+          <div class="bus-timing-row" data-time="08:45"><span class="bus-num">01</span><span class="bus-time">8:45<span class="ampm">AM</span></span><span class="bus-operator bus-op-govt">GOVT NO.8</span></div>
+          <div class="bus-timing-row" data-time="11:15"><span class="bus-num">02</span><span class="bus-time">11:15<span class="ampm">AM</span></span><span class="bus-operator bus-op-govt">GOVT NO.8</span></div>
+          <div class="bus-timing-row" data-time="13:30"><span class="bus-num">03</span><span class="bus-time">1:30<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.8</span></div>
+          <div class="bus-timing-row" data-time="17:45"><span class="bus-num">04</span><span class="bus-time">5:45<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.8</span></div>
+          <div class="bus-timing-row" data-time="20:45"><span class="bus-num">05</span><span class="bus-time">8:45<span class="ampm">PM</span></span><span class="bus-operator bus-op-govt">GOVT NO.8</span></div>
+        </div>
+      </div>
+
+      <!-- PUDUKOTTAI -->
+      <div class="bus-route-card r">
+        <div class="bus-route-header">
+          <span class="bus-route-icon">🚌</span>
+          <div class="bus-route-title-wrap">
+            <div class="bus-route-title">MITHILAIPATTI → PUDUKOTTAI</div>
+            <div class="bus-route-title-ta">மிதிலைப்பட்டி → புதுக்கோட்டை</div>
+          </div>
+          <span class="bus-count-badge">2 trips</span>
+        </div>
+        <div class="bus-timings-list">
+          <div class="bus-timing-row" data-time="07:15"><span class="bus-num">01</span><span class="bus-time">7:15<span class="ampm">AM</span></span><span class="bus-operator bus-op-ganesh">GANESH</span></div>
+          <div class="bus-timing-row" data-time="15:00"><span class="bus-num">02</span><span class="bus-time">3:00<span class="ampm">PM</span></span><span class="bus-operator bus-op-ganesh">GANESH</span></div>
+        </div>
+      </div>
+
+      <!-- NATHAM -->
+      <div class="bus-route-card r">
+        <div class="bus-route-header">
+          <span class="bus-route-icon">🚌</span>
+          <div class="bus-route-title-wrap">
+            <div class="bus-route-title">MITHILAIPATTI → NATHAM</div>
+            <div class="bus-route-title-ta">மிதிலைப்பட்டி → நாத்தம்</div>
+          </div>
+          <span class="bus-count-badge">2 trips</span>
+        </div>
+        <div class="bus-timings-list">
+          <div class="bus-timing-row" data-time="10:00"><span class="bus-num">01</span><span class="bus-time">10:00<span class="ampm">AM</span></span><span class="bus-operator bus-op-ganesh">GANESH</span></div>
+          <div class="bus-timing-row" data-time="17:45"><span class="bus-num">02</span><span class="bus-time">5:45<span class="ampm">PM</span></span><span class="bus-operator bus-op-ganesh">GANESH</span></div>
+        </div>
+      </div>
+
+      <!-- KARAIKUDI -->
+      <div class="bus-route-card r">
+        <div class="bus-route-header">
+          <span class="bus-route-icon">🚌</span>
+          <div class="bus-route-title-wrap">
+            <div class="bus-route-title">MITHILAIPATTI → KARAIKUDI</div>
+            <div class="bus-route-title-ta">மிதிலைப்பட்டி → காரைக்குடி</div>
+          </div>
+          <span class="bus-count-badge">2 trips</span>
+        </div>
+        <div class="bus-timings-list">
+          <div class="bus-timing-row" data-time="12:30"><span class="bus-num">01</span><span class="bus-time">12:30<span class="ampm">PM</span></span><span class="bus-operator bus-op-kbl">KBL</span></div>
+          <div class="bus-timing-row" data-time="18:30"><span class="bus-num">02</span><span class="bus-time">6:30<span class="ampm">PM</span></span><span class="bus-operator bus-op-kbl">KBL</span></div>
+        </div>
+      </div>
+
+      <!-- MADURAI -->
+      <div class="bus-route-card r">
+        <div class="bus-route-header">
+          <span class="bus-route-icon">🚌</span>
+          <div class="bus-route-title-wrap">
+            <div class="bus-route-title">MITHILAIPATTI → MADURAI</div>
+            <div class="bus-route-title-ta">மிதிலைப்பட்டி → மதுரை</div>
+          </div>
+          <span class="bus-count-badge">2 trips</span>
+        </div>
+        <div class="bus-timings-list">
+          <div class="bus-timing-row" data-time="08:00"><span class="bus-num">01</span><span class="bus-time">8:00<span class="ampm">AM</span></span><span class="bus-operator bus-op-unknown">—</span></div>
+          <div class="bus-timing-row" data-time="17:00"><span class="bus-num">02</span><span class="bus-time">5:00<span class="ampm">PM</span></span><span class="bus-operator bus-op-unknown">—</span></div>
+        </div>
+      </div>
+
+    </div><!-- end grid -->
+
+    <!-- Legend -->
+    <div class="bus-legend">
+      <div class="bus-legend-item"><span class="bus-legend-dot" style="background:#7fbfdf;"></span><span style="color:rgba(255,255,255,0.5);">GOVT BUS</span></div>
+      <div class="bus-legend-item"><span class="bus-legend-dot" style="background:#90c870;"></span><span style="color:rgba(255,255,255,0.5);">GANESH</span></div>
+      <div class="bus-legend-item"><span class="bus-legend-dot" style="background:#e0b060;"></span><span style="color:rgba(255,255,255,0.5);">KBL</span></div>
+      <div class="bus-legend-item"><span class="bus-legend-dot" style="background:rgba(255,255,255,0.2);"></span><span style="color:rgba(255,255,255,0.5);">UNKNOWN</span></div>
+    </div>
+
   </div>
 </section>
 
@@ -2184,6 +2470,73 @@ if (cfSubject) cfSubject.addEventListener('change', function() {
     }
   });
   
+})();
+
+/* ══════════ NEXT BUS HIGHLIGHTER ══════════ */
+(function(){
+  // IST = UTC+5:30
+  function getISTMinutes(){
+    const now = new Date();
+    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+    const ist = new Date(utc + 5.5 * 3600000);
+    return ist.getHours() * 60 + ist.getMinutes();
+  }
+
+  function getISTTimeStr(){
+    const now = new Date();
+    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+    const ist = new Date(utc + 5.5 * 3600000);
+    let h = ist.getHours(), m = ist.getMinutes(), s = ist.getSeconds();
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    const hd = h % 12 || 12;
+    return `${hd}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ampm}`;
+  }
+
+  function highlightNextBus(){
+    const nowMin = getISTMinutes();
+    const allRows = document.querySelectorAll('.bus-timing-row[data-time]');
+
+    // Reset all
+    allRows.forEach(row => {
+      row.classList.remove('next-bus','past-bus');
+    });
+
+    // Per card — find the next upcoming bus
+    const cards = document.querySelectorAll('.bus-route-card');
+    cards.forEach(card => {
+      const rows = card.querySelectorAll('.bus-timing-row[data-time]');
+      let nextFound = false;
+      rows.forEach(row => {
+        const [hh, mm] = row.dataset.time.split(':').map(Number);
+        const rowMin = hh * 60 + mm;
+        if (!nextFound && rowMin >= nowMin) {
+          row.classList.add('next-bus');
+          nextFound = true;
+        } else if (rowMin < nowMin) {
+          row.classList.add('past-bus');
+        }
+      });
+    });
+  }
+
+  // Live clock update
+  function updateClock(){
+    const el = document.getElementById('busLiveClock');
+    if(el) el.textContent = getISTTimeStr();
+  }
+
+  // Init
+  highlightNextBus();
+  updateClock();
+
+  // Update every 30 seconds
+  setInterval(()=>{
+    highlightNextBus();
+    updateClock();
+  }, 30000);
+
+  // Update clock display every second
+  setInterval(updateClock, 1000);
 })();
 </script>
 
