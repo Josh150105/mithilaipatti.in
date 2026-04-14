@@ -795,6 +795,147 @@ h2.en{font-family:'Cinzel',serif;font-size:clamp(0.8rem,2.5vw,1.3rem);letter-spa
 @media(max-width:600px){.gallery-cell.tall{grid-row:span 1;}}
 .gallery-note{text-align:center;padding:clamp(1.5rem,4vw,3rem);background:#fff;border:2px dashed var(--stone);border-radius:4px;margin-top:1.5rem;}
 
+/* ══════════ VIDEO GALLERY ══════════ */
+#video-gallery{background:var(--cream);}
+.video-gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(1rem,3vw,2rem);
+  margin-top:2rem;
+}
+.video-card{
+  background:var(--stone);
+  border-radius:8px;
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+  transition:all .3s ease;
+  border:1px solid rgba(139,26,26,0.1);
+}
+.video-card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.15);border-color:var(--fire);}
+.video-container{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:black;
+  overflow:hidden;
+  width:100%;
+}
+.video-container video{
+  width:100%;
+  height:auto;
+  max-width:100%;
+  max-height:80vh;
+  object-fit:contain;
+  display:block;
+}
+.video-play-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:opacity .3s ease;
+}
+.video-card:hover .video-play-overlay{background:rgba(0,0,0,0.2);}
+.video-play-btn{
+  width:60px;
+  height:60px;
+  background:rgba(0,0,0,0.8);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:1.5rem;
+  transition:transform .3s ease;
+}
+.video-card:hover .video-play-btn{transform:scale(1.1);}
+.video-info{
+  padding:1rem;
+  background:linear-gradient(135deg,var(--cream),var(--stone));
+}
+.video-title{
+  font-size:clamp(1rem, 2vw, 1.2rem);
+  font-weight:600;
+  color:var(--ink);
+  margin-bottom:0.5rem;
+  line-height:1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.video-caption{
+  font-size:clamp(0.9rem, 1.5vw, 1rem);
+  color:var(--brown);
+  line-height:1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Video Modal */
+.video-modal{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.9);backdrop-filter:blur(8px);
+  z-index:9999;display:none;align-items:center;justify-content:center;
+  animation:fadeIn 0.3s ease;
+}
+.video-modal.show{display:flex;}
+.video-modal-content{
+  background:linear-gradient(135deg,var(--cream),var(--stone));
+  padding:2rem;border-radius:12px;max-width:95%;max-height:90vh;width:90%;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  border:2px solid var(--gold);position:relative;
+}
+.video-modal-close{
+  position:absolute;top:1rem;right:1rem;
+  background:none;border:none;font-size:1.5rem;
+  cursor:pointer;color:var(--brown);opacity:0.6;
+  transition:opacity 0.3s;
+}
+.video-modal-close:hover{opacity:1;}
+.video-modal-title{
+  font-family:'Cinzel',serif;font-size:1.5rem;
+  color:var(--blood);margin-bottom:1.5rem;text-align:center;
+  letter-spacing:0.05em;
+}
+.video-modal-video{
+  width:100%;
+  border-radius:8px;
+  background:#000;
+}
+
+@media(min-width:769px) and (max-width:1024px){
+  .video-gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .video-modal-content{padding:1.5rem;max-width:95%;max-height:90vh;}
+}
+@media(max-width:768px){
+  .video-gallery-grid{grid-template-columns:1fr;}
+  .video-info{
+    padding:0.9rem;
+  }
+}
+@media(max-width:480px){
+  /* small mobile */
+  .video-info{
+    padding:0.7rem;
+  }
+  .video-title{
+    margin-bottom:0.4rem;
+  }
+}
+
+/* Video responsiveness */
+@media(max-width:1024px){
+  /* tablet */
+}
+@media(max-width:768px){
+  .video-container video{max-height:70vh;}
+}
+@media(max-width:480px){
+  /* small mobile */
+}
+
 #contact{background:var(--dark);position:relative;overflow:hidden;}
 #contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 100%,rgba(139,26,26,0.3) 0%,transparent 70%);}
 .contact-wrap{position:relative;z-index:2;}
@@ -815,7 +956,7 @@ h2.en{font-family:'Cinzel',serif;font-size:clamp(0.8rem,2.5vw,1.3rem);letter-spa
 .c-form-en{font-family:'Cinzel',serif;font-size:var(--text-xs);letter-spacing:0.2em;color:var(--gold);margin-bottom:1.5rem;}
 .fg{margin-bottom:1rem;}
 .fg label{display:block;font-size:var(--text-xs);letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,168,83,0.7);margin-bottom:0.4rem;}
-.fg input,.fg textarea,.fg select{width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:2px;color:#fff;font-family:'Crimson Pro',serif;font-size:var(--text-md);outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.fg input,.fg textarea,.fg select{width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:2px;color:#fff;font-family:'Crimson Pro',serif;font-size:var(--text-md);outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;}
 .fg input:focus,.fg textarea:focus{border-color:rgba(212,168,83,0.5);}
 .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.25);}
 .fg textarea{height:100px;resize:vertical;}
@@ -1251,6 +1392,7 @@ body.eng .en-b{display:block;}
     <li><a href="#festivals"><span class="ta-t">பண்டிகைகள்</span><span class="en-t">Festivals</span></a></li>
     <li><a href="#reach"><span class="ta-t">வழி</span><span class="en-t">Reach</span></a></li>
     <li><a href="#bus-timing"><span class="ta-t">பேருந்து</span><span class="en-t">Bus</span></a></li>
+    <li><a href="#video-gallery"><span class="ta-t">வீடியோ</span><span class="en-t">Video</span></a></li>
     <li><a href="#developer">Developer</a></li>
     <li><a href="#contact"><span class="ta-t">தொடர்பு</span><span class="en-t">Contact</span></a></li>
   </ul>
@@ -1607,7 +1749,7 @@ body.eng .en-b{display:block;}
 
       <!-- Prince Mobiles -->
       <div class="ad-card" onclick="window.open('tel:9361690197')" role="link" aria-label="பிரண்ஸ் மொபைல்ஸ் — அழைக்க: 9361690197">
-        <img src="Taj anne shop.png"
+        <img src="taj anne shop.png"
           alt="பிரண்ஸ் மொபைல்ஸ் — சேல்ஸ் &amp; சர்வீஸ், இராங்கியம் மேட்டு"
           loading="lazy"
           decoding="async"
@@ -1924,6 +2066,75 @@ body.eng .en-b{display:block;}
       <div class="gallery-cell"><img src="7.jpeg" alt="Village scenery" loading="lazy" decoding="async"></div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- VIDEO GALLERY -->
+<section id="video-gallery">
+  <div class="wrap">
+    <div class="label-tag r"><span class="ta-t">🎬 வீடியோ தொகுப்பு</span><span class="en-t">🎬 Video Gallery</span></div>
+    <h2 class="ta ta-b r">மிதிலைப்பட்டியை நினைவுகள் மற்றும் தருணங்கள் வழியாக கண்டறியுங்கள்</h2>
+    <h2 class="en r">Explore Mithilaipatti through moments and memories</h2>
+    <div class="video-gallery-grid r">
+      <div class="video-card r">
+        <div class="video-container">
+          <video poster="thumb.png" preload="none">
+            <source src="3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-play-overlay">
+          <div class="video-play-btn">▶</div>
+        </div>
+        <div class="video-info">
+          <div class="video-title"><span class="ta-t">கோவில் திருவிழா</span><span class="en-t">Temple Festival</span></div>
+          <div class="video-caption"><span class="ta-t">ஆண்டு கோவில் திருவிழாவின் வண்ணமயமான காட்சிகள்</span><span class="en-t">Vibrant scenes from the annual temple festival</span></div>
+        </div>
+      </div>
+      <div class="video-card r">
+        <div class="video-container">
+          <video poster="thumb.png" preload="none">
+            <source src="4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-play-overlay">
+          <div class="video-play-btn">▶</div>
+        </div>
+        <div class="video-info">
+          <div class="video-title"><span class="ta-t">மிதிலைப்பட்டி</span></div>
+          <div class="video-caption"><span class="ta-t">நிகழ்வுகள்</span></div>
+        </div>
+      </div>
+      <div class="video-card r">
+        <div class="video-container">
+          <video poster="thumb.png" preload="none">
+            <source src="5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-play-overlay">
+          <div class="video-play-btn">▶</div>
+        </div>
+        <div class="video-info">
+          <div class="video-title"><span class="ta-t">மிதிலைப்பட்டி</span></div>
+          <div class="video-caption"><span class="ta-t">நிகழ்வுகள்</span></div>
+        </div>
+      </div>
+      <div class="video-card r">
+        <div class="video-container">
+          <video poster="thumb.png" preload="none">
+            <source src="7.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-play-overlay">
+          <div class="video-play-btn">▶</div>
+        </div>
+        <div class="video-info">
+          <div class="video-title"><span class="ta-t">மிதிலைப்பட்டி</span></div>
+          <div class="video-caption"><span class="ta-t">நிகழ்வுகள்</span>   </div>
+        </div>
+      </div>
+      
+    </div>
   </div>
 </section>
 
@@ -2442,6 +2653,17 @@ if (cfSubject) cfSubject.addEventListener('change', function() {
   </div>
 </div>
 
+<!-- ══════════ VIDEO MODAL ══════════ -->
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-content">
+    <button class="video-modal-close" id="videoModalClose">×</button>
+    <h3 class="video-modal-title" id="videoModalTitle"></h3>
+    <div class="video-container">
+      <video class="video-modal-video" id="videoModalVideo" controls></video>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════ ADMIN LOGOUT BUTTON ══════════ -->
 <button class="admin-logout" id="adminLogout">
   <span class="ta-t">🚪 வெளியேறு</span><span class="en-t">🚪 Logout</span>
@@ -2812,6 +3034,55 @@ if (cfSubject) cfSubject.addEventListener('change', function() {
 
   // Update clock display every second
   setInterval(updateClock, 1000);
+})();
+
+// ═══ VIDEO GALLERY FUNCTIONALITY ═══
+(function() {
+  const videoModal = document.getElementById('videoModal');
+  const videoModalClose = document.getElementById('videoModalClose');
+  const videoModalTitle = document.getElementById('videoModalTitle');
+  const videoModalVideo = document.getElementById('videoModalVideo');
+  let currentVideoCard = null;
+  
+  // Video card click handlers
+  document.querySelectorAll('.video-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const video = this.querySelector('video');
+      const title = this.querySelector('.video-title').textContent;
+      
+      if (video && video.querySelector('source')) {
+        currentVideoCard = this;
+        videoModalTitle.textContent = title;
+        videoModalVideo.src = video.querySelector('source').src;
+        videoModalVideo.poster = video.poster;
+        videoModal.classList.add('show');
+        videoModalVideo.play();
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+  
+  // Close modal
+  videoModalClose.addEventListener('click', closeVideoModal);
+  videoModal.addEventListener('click', function(e) {
+    if (e.target === videoModal) {
+      closeVideoModal();
+    }
+  });
+  
+  // Keyboard support
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && videoModal.classList.contains('show')) {
+      closeVideoModal();
+    }
+  });
+  
+  function closeVideoModal() {
+    videoModalVideo.pause();
+    videoModalVideo.currentTime = 0;
+    videoModal.classList.remove('show');
+    document.body.style.overflow = '';
+  }
 })();
 </script>
 
