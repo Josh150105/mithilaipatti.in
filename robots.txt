@@ -1,0 +1,39 @@
+# robots.txt for Mithilaipatti.in
+# Generated: June 3, 2026
+# Purpose: Instruct search engine crawlers on site indexing
+
+# Allow all bots
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /cgi-bin/
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Allow AdSense crawlers
+User-agent: Mediapartners-Google
+Allow: /
+
+# Allow Google Ads crawlers
+User-agent: AdsBot-Google
+Allow: /
+
+# Sitemap reference
+Sitemap: https://mithilaipatti.in/sitemap.xml
+Sitemap: https://mithilaipatti.in/sitemap-pages.xml
+
+# Comment out specific sections if needed
+# To block a specific bot:
+# User-agent: BotName
+# Disallow: /

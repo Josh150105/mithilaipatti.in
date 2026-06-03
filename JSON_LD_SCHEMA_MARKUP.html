@@ -1,0 +1,403 @@
+<!-- ═══════════════════════════════════════════════════════════════
+     MITHILAIPATTI WEBSITE — JSON-LD SCHEMA MARKUP
+     
+     Add these <script> tags to your <head> section (before </head>)
+     This improves SEO and enables rich snippets in Google search results
+     ═══════════════════════════════════════════════════════════════ -->
+
+
+<!-- 1. ORGANIZATION SCHEMA (Primary Business/Village Identity) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Mithilaipatti Village",
+  "url": "https://mithilaipatti.in",
+  "logo": "https://mithilaipatti.in/Picsart_26-02-24_08-31-58-668.png",
+  "image": "https://mithilaipatti.in/Picsart_26-02-24_08-31-58-668.png",
+  "description": "Official website of Mithilaipatti village, Sivagangai district. Explore the heritage, temples, church, tourism attractions and cultural legacy of this historic Tamil Nadu village.",
+  "sameAs": [
+    "https://en.wikipedia.org/wiki/Mithilaipatti_Kavirayars",
+    "https://ta.wikipedia.org/wiki/மிதிலைப்பட்டி_கவிராயர்கள்"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Tourism Information",
+    "telephone": "+91-84389-22674",
+    "email": "contact@mithilaipatti.in",
+    "areaServed": "IN"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Tamil Nadu, India",
+    "geo": {
+      "@type": "GeoShape",
+      "box": "8.0 77.5 13.0 80.0"
+    }
+  }
+}
+</script>
+
+
+<!-- 2. PLACE SCHEMA (Geographic Location) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Place",
+  "name": "Mithilaipatti",
+  "alternateName": ["மிதிலைப்பட்டி", "Mithilaipatti Village"],
+  "description": "A historic village in Sivagangai district, Tamil Nadu, known for its Kavirayar literary legacy and temples.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Sivan Koil Street, Rangiem",
+    "addressLocality": "Thirupattur",
+    "addressRegion": "Sivagangai",
+    "postalCode": "622409",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 10.7557,
+    "longitude": 78.6917
+  },
+  "image": "https://mithilaipatti.in/Picsart_26-02-24_08-31-58-668.png",
+  "url": "https://mithilaipatti.in",
+  "telephone": "+91-84389-22674"
+}
+</script>
+
+
+<!-- 3. LOCAL BUSINESS SCHEMA (For Mithilai Eco Stay) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Mithilai Eco Stay",
+  "image": "https://mithilaipatti.in/eco-image.jpg",
+  "description": "Boutique eco-resort in Mithilaipatti village offering authentic Chettinad cuisine, traditional hospitality, and immersive village experiences.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Sivan Koil Street, Rangiem",
+    "addressLocality": "Thirupattur",
+    "addressRegion": "Sivagangai",
+    "postalCode": "622409",
+    "addressCountry": "IN"
+  },
+  "telephone": "+91-87604-34567",
+  "email": "booking@mithilai.in",
+  "url": "https://www.booking.com/hotel/in/mithila-eco-stay-mithilaipatti1.html",
+  "priceRange": "₹₹",
+  "starRating": {
+    "@type": "Rating",
+    "ratingValue": "4.7",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "143",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "WiFi"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Air Conditioning"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Restaurant"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Garden"
+    }
+  ],
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Verified Guests"
+      },
+      "reviewBody": "Authentic village experience with excellent Chettinad cuisine"
+    }
+  ]
+}
+</script>
+
+
+<!-- 4. TOURIST ATTRACTION SCHEMA (Temple) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Avodainathar Temple",
+  "alternateName": "ஆவுடையநாதர் சிவயோகவள்ளி அம்பாள் கோயில்",
+  "description": "Ancient Sivan temple maintained by Nattukottai Nagarathar community. Spiritual heart of Mithilaipatti village.",
+  "image": "https://mithilaipatti.in/temple.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Sivan Koil Street, Rangiem",
+    "addressLocality": "Mithilaipatti",
+    "addressRegion": "Sivagangai",
+    "postalCode": "622409",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 10.7557,
+    "longitude": 78.6917
+  },
+  "telephone": "+91-84389-22674",
+  "url": "https://mithilaipatti.in/#worship",
+  "opens": "05:00",
+  "closes": "21:00",
+  "priceRange": "Free",
+  "rating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "bestRating": "5",
+    "worstRating": "1",
+    "reviewCount": "45"
+  }
+}
+</script>
+
+
+<!-- 5. PLACE OF WORSHIP SCHEMA (Church) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PlaceOfWorship",
+  "name": "Arockia Madha Church",
+  "alternateName": "புனித ஆரோக்கிய மாதா ஆலயம்",
+  "description": "Church of Our Lady of Good Health. Famous for its grand 10-day feast in September drawing thousands of devotees.",
+  "image": "https://mithilaipatti.in/church.jpeg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Church Road",
+    "addressLocality": "Mithilaipatti",
+    "addressRegion": "Sivagangai",
+    "postalCode": "622409",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 10.7557,
+    "longitude": 78.6917
+  },
+  "telephone": "+91-84389-22674",
+  "url": "https://mithilaipatti.in/#worship",
+  "religiousAffiliation": "Christian",
+  "opens": "06:00",
+  "closes": "19:00",
+  "priceRange": "Free"
+}
+</script>
+
+
+<!-- 6. EVENT SCHEMA (Annual Festival) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Arockia Madha Church Feast",
+  "alternateName": "அரோக்கியமாதா திருவிழா",
+  "description": "10-day grand feast at Arockia Madha Church attracting thousands of devotees from surrounding villages. A major celebration in Mithilaipatti's cultural calendar.",
+  "image": "https://mithilaipatti.in/church.jpeg",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "startDate": "2026-09-01",
+  "endDate": "2026-09-10",
+  "location": {
+    "@type": "Place",
+    "name": "Arockia Madha Church",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mithilaipatti",
+      "addressRegion": "Sivagangai",
+      "postalCode": "622409",
+      "addressCountry": "IN"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Arockia Madha Church"
+  },
+  "url": "https://mithilaipatti.in/#festivals"
+}
+</script>
+
+
+<!-- 7. BREADCRUMB SCHEMA (Navigation Path) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://mithilaipatti.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "History",
+      "item": "https://mithilaipatti.in/#history"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Temples & Churches",
+      "item": "https://mithilaipatti.in/#worship"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Tourism",
+      "item": "https://mithilaipatti.in/#tourism"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Contact",
+      "item": "https://mithilaipatti.in/#contact"
+    }
+  ]
+}
+</script>
+
+
+<!-- 8. FAQ SCHEMA (Common Questions) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Mithilaipatti known for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mithilaipatti is known for its 370-year literary Kavirayar legacy, Hindu-Christian harmony, connection to U.V. Swaminatha Iyer's Tamil scholarship preservation, and authentic Chettinad heritage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far is Mithilaipatti from nearby towns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Thirumayam: 9 km, Ponnamaravati: 13 km, Pudukkottai: 25 km, Karaikudi: 29 km, Madurai: 86 km, Trichy Airport: 75 km"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is the best time to visit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "October-March (cooler months). Key festivals: Shivaratri (Feb/March), September Church Feast (Sept 1-10), Pongal (January)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I stay in Mithilaipatti?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mithilai Eco Stay offers 6 AC rooms, authentic Chettinad cuisine, and village experiences. 4.7★ rating on Booking.com. Phone: +91-87604-34567"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there buses from Mithilaipatti?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Regular buses to Ponnamaravati, Thirumayam, Pudukkottai, Karaikudi, Natham, and Madurai. Bus schedules available on our website."
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- 9. PERSON SCHEMA (Developer/Creator) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "David Joshwa",
+  "url": "https://mithilaipatti.in/#developer",
+  "jobTitle": "Web Developer & Designer",
+  "image": "https://mithilaipatti.in/developer-avatar.jpg",
+  "sameAs": [
+    "https://www.linkedin.com/in/davidjoshwa/",
+    "https://github.com/davidjoshwa"
+  ],
+  "affiliation": {
+    "@type": "Organization",
+    "name": "Mithilaipatti Village"
+  }
+}
+</script>
+
+
+<!-- 10. WEBSITE SCHEMA (Overall Site Structure) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Mithilaipatti",
+  "url": "https://mithilaipatti.in",
+  "description": "Official website of Mithilaipatti village in Sivagangai district, Tamil Nadu. Explore village history, temples, church, tourism attractions, and cultural heritage.",
+  "image": "https://mithilaipatti.in/Picsart_26-02-24_08-31-58-668.png",
+  "inLanguage": ["en", "ta"],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://mithilaipatti.in/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+<!-- IMPLEMENTATION NOTES:
+
+1. Replace image URLs with your actual image URLs:
+   - https://mithilaipatti.in/eco-image.jpg
+   - https://mithilaipatti.in/developer-avatar.jpg
+
+2. Update phone numbers, emails, addresses to match your actual information
+
+3. Adjust coordinates (latitude: 10.7557, longitude: 78.6917) if needed
+
+4. Update festival dates annually
+
+5. Replace review count and ratings with actual data
+
+6. These schemas enable:
+   - Rich snippets in Google search results
+   - Google Knowledge Graph entry
+   - Featured snippets
+   - Better mobile search experience
+   - Improved click-through rates (CTR)
+
+7. Test using:
+   - https://validator.schema.org/
+   - https://search.google.com/test/rich-results
+
+-->
+
